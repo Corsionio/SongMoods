@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Linking my CSS File here -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/songStyles.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main Song page</title>
+        <style> </style>
+    </head>
+    <body>
+        <h1>!Song name!</h1>
+        <div class = "image-box">
+            {% if image_url %}
+            <img src="{{image_url}}" alt="Spotify Image">
+            {%else%}
+                <p> No Image Available </p>
+            {%endif%}
+        </div>
+
+        <script>
+            var red = {{red}}
+            var blue = {{blue}}
+            var green = {{green}}
+
+            var backColor= 'rgb(' + 
+                ((red) & 255) + ',' +
+                ((blue) & 255) + ',' + 
+                ((green) & 255) + ')';
+
+            document.body.style.backgroundColor = backColor;
+
+        </script>
+    </body>
+</html>

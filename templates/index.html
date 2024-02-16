@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--Linking my CSS File here -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flask Tutorial</title>
+        <style> </style>
+    </head>
+    <body>
+        <h1>Song name</h1>
+        <form action = "/song" method = "post">
+            <label for="song"> </label>
+            <input type="text" name="song" id="song-input">
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+
+        <script>
+            var submitBtn = document.getElementbyId("submit-btn");
+            submitBtn.style.fontWeight ="bold";
+
+            var songInput = document.getElementById("song-input");
+            songInput.style.width = "200px";
+    </body>
+</html>
