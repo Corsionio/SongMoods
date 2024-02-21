@@ -59,7 +59,17 @@ def search_for_song(song_name):
     else:
         print("No results found for the track:", song_name)
         return None
+
+def get_song_name(song_name):
+    results = sp.search(q=song_name, type='track', limit=1)
     
+    if(results['tracks']['items']):
+        track = results['tracks']['items'][0]
+        return track['name']
+    else:
+        print("No results found for the track:", song_name)
+        return None
+
 def get_valence(song_name):
     id = search_for_song(song_name)
     if(id != 0):
