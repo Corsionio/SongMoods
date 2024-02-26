@@ -135,3 +135,12 @@ def get_spotify_image_url(song_name):
     
     print("ERROR: No image found for track")
     return None
+
+def get_mode(song_name):
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
+        
+        if(audio_features and audio_features[0]):
+            mode = audio_features[0]['mode']
+            return mode

@@ -40,10 +40,10 @@ def song():
         song_instrumentalness = values.get_instrumentalness(song)
         song_energy = values.get_energy(song)
         song_danceability = values.get_danceability(song)
+        song_mode = values.get_mode(song)
         
         #######################################
-        #  Temporary solution to RGB Changes  #
-        #    (Finished will be different)     #
+        #             RGB ALGORITHM           #
         #######################################
 
         # SONG VALENCE #
@@ -122,10 +122,14 @@ def song():
             green += song_danceability * 2
             blue += song_danceability
             red += song_danceability / 2
-        print("red after danceability", red)
-        print("green after danceability", green)
-        print("blue after danceability", blue)
         
+        #If the mode confidence is above or below an arbitrary value:
+        if(song_mode == 0 and song_valence <= 0.35):
+            blue += 100 * 1.5
+        if(song_mode == 1 and song_valence >= 0.65):
+            green += 100 * 1.5
+        
+        # Keeps RGB between 0 and 255
         if(red <= 0):
             red = 0
         if(green <= 0):
@@ -157,7 +161,6 @@ def song():
 
 
     return render_template('song.html', song=song_name,  image_url=image_url, red = red, green = green, blue = blue)
-
  
 if __name__ == '__main__':
    app.run(debug=True)

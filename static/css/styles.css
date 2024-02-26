@@ -3,14 +3,14 @@
     background-color: rgb(213, 112, 226);
     color: white;
     padding: 10px 15px;
-    border: none;
+    border: 2px solid black;
     border-radius: 4px;
     cursor: pointer;
 }
 
 #song-input {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid black;
     border-radius: 4px;
     width: 200px;
 }
@@ -37,13 +37,21 @@ body {
     background-image: cover;
 }
 
-h1 {
+.centered{
     text-align: center;
+}
+
+h1 {
+    background-color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 36px;
     margin-top: 220px;
-    font-weight: bold;
-    -webkit-text-stroke: 0.05px rgb(213, 112, 226);
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
 }
 
 
