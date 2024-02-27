@@ -15,22 +15,6 @@
     width: 200px;
 }
 
-.image-box {
-    border: 2px solid #ccc;
-    padding: 100px;
-    margin-top: 20px;
-}
-
-.image-box img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-    width: 50%;
-    max-height: 8%;
-    max-width: 12%;
-}
-
 body {
     background-image: url("SpotifyAppBackground.jpg");
     background-color:#cccccc;
@@ -43,6 +27,7 @@ body {
 
 h1 {
     background-color: black;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 36px;
     margin-top: 220px;
