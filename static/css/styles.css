@@ -16,7 +16,7 @@
 }
 
 body{
-    background-image: url('water.jpg');
+    background-image: url('/path/to/Water.gif');
     background-size: cover;
     background-repeat: no-repeat;
 }
