@@ -1,0 +1,47 @@
+
+#submit-btn{
+    background-color: rgb(213, 112, 226);
+    color: white;
+    padding: 10px 15px;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#song-input {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 200px;
+}
+
+body{
+    background-image: url('Water.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.centered{
+    text-align: center;
+}
+
+h1 {
+    background-color: black;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    margin-top: 220px;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+
+
+form {
+    text-align: center;
+}
+
