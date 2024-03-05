@@ -1,3 +1,7 @@
+#   Author: Corso Montuori
+#   Date: 3/4/2024
+#   Version: 1.1
+
 def songAlgo(song_valence, song_tempo, song_instrumentalness, 
              song_energy, song_danceability, song_mode):
         red = 0

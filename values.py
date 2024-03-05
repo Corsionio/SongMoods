@@ -1,3 +1,7 @@
+#   Author: Corso Montuori
+#   Date: 3/4/2024
+#   Version: 1.1
+
 from dotenv import load_dotenv
 import os
 import base64
