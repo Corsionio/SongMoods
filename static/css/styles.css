@@ -1,3 +1,7 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
 
 #submit-btn{
     background-color: rgb(213, 112, 226);
@@ -15,11 +19,24 @@
     width: 200px;
 }
 
+#bkg {
+    position: fixed; 
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -1;
+    background-size: cover;
+}
+
 body{
-    background-image: url('Water.gif');
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
 
 .centered{
     text-align: center;
