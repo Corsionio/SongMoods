@@ -47,7 +47,6 @@ def search_for_song(song_name):
         id = track['id']
         return id
     else:
-        print("No results found for the track:", song_name)
         return None
 
 def get_song_name(song_name):
@@ -57,7 +56,6 @@ def get_song_name(song_name):
         track = results['tracks']['items'][0]
         return track['name']
     else:
-        print("No results found for the track:", song_name)
         return None
 
 def get_valence(song_name):
@@ -123,7 +121,6 @@ def get_spotify_image_url(song_name):
             image_url = images[0]['url']
             return image_url
     
-    print("ERROR: No image found for track")
     return None
 
 def get_mode(song_name):
