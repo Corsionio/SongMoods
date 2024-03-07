@@ -46,21 +46,6 @@ def song():
         red, green, blue = songColor.songAlgo(song_valence, song_tempo, song_instrumentalness, 
                                               song_energy, song_danceability, song_mode)
         
-        print("##########################################################")
-        print("Track Info --> ", track_info)
-        print("Song Token --> ", token)
-        print("Song Name --> ", song_name)
-        print("Song Valence --> ", song_valence)
-        print("Time Signature --> ", song_time_signature)
-        print("Song Tempo --> ", song_tempo)
-        print("Song Instrumentalness --> ", song_instrumentalness)
-        print("Song Energy --> ", song_energy)
-        print("Song Danceability --> ", song_danceability)
-        print("-> Red Before sub <-", red)
-        print("-> Green Before sub <-", green)
-        print("-> Blue Before sub <-", blue)
-        print("##########################################################")
-        
         # Gets image_url
         image_url = values.get_spotify_image_url(song)
 
