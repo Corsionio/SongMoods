@@ -24,15 +24,12 @@ def song():
     green = 0
     blue = 0
     
-    
     if request.method=="POST":
         song = request.form.get("song")
     
     if(song != None):
         # Gets all song values from the back-end values.py 
         # files and assigns them
-        track_info = values.search_for_song(song)
-        token = values.get_token()
         song_name = values.get_song_name(song)
         song_valence = values.get_valence(song)
         song_tempo = values.get_tempo(song)
