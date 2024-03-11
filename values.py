@@ -3,6 +3,7 @@
 #   Version: 1.1
 
 from dotenv import load_dotenv
+from functools import lru_cache
 import os
 import base64
 from requests import post
@@ -38,7 +39,9 @@ def get_token():
 
 def get_auth_header(token):
     return{"Authorization" : "Bearer " + token}
-    
+
+# Cache to store song names, helpful for speed and reducing crashing
+@lru_cache(maxsize = 128)    
 def search_for_song(song_name):
     results = sp.search(q=song_name, type='track', limit=1)
     
@@ -47,6 +50,7 @@ def search_for_song(song_name):
         id = track['id']
         return id
     else:
+        print("No results found for the track:", song_name)
         return None
 
 def get_song_name(song_name):
@@ -66,15 +70,6 @@ def get_valence(song_name):
         if(audio_features and audio_features[0]):
             valence = audio_features[0]['valence']
             return valence
-        
-#def get_time_signature(song_name):
-#    id = search_for_song(song_name)
-#    if(id != 0):
-#        audio_features = sp.audio_features([id])
-#        
-#        if(audio_features and audio_features[0]):
-#            time_signature = audio_features[0]['time_signature']
-#            return time_signature
 
 def get_tempo(song_name):
     id = search_for_song(song_name)
