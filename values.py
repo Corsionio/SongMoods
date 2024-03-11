@@ -60,7 +60,6 @@ def get_song_name(song_name):
         track = results['tracks']['items'][0]
         return track['name']
     else:
-        print("No results found for the track:", song_name)
         return None
 
 def get_valence(song_name):
@@ -71,15 +70,6 @@ def get_valence(song_name):
         if(audio_features and audio_features[0]):
             valence = audio_features[0]['valence']
             return valence
-        
-def get_time_signature(song_name):
-    id = search_for_song(song_name)
-    if(id != 0):
-        audio_features = sp.audio_features([id])
-        
-        if(audio_features and audio_features[0]):
-            time_signature = audio_features[0]['time_signature']
-            return time_signature
 
 def get_tempo(song_name):
     id = search_for_song(song_name)
@@ -126,7 +116,6 @@ def get_spotify_image_url(song_name):
             image_url = images[0]['url']
             return image_url
     
-    print("ERROR: No image found for track")
     return None
 
 def get_mode(song_name):
