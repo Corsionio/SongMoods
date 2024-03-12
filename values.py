@@ -17,7 +17,7 @@ client_secret = os.getenv("CLIENT_SECRET")
 
 client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, requests_timeout = 10, retries = 10)
-global_songID = ""
+
 
 def get_token():
     auth_string = client_id + ":" + client_secret
@@ -44,8 +44,8 @@ def search_for_song(song_name):
     
     if(results['tracks']['items']):
         track = results['tracks']['items'][0]
-        global_songID = track['id']
-        return global_songID
+        id = track['id']
+        return id
     else:
         print("No results found for the track:", song_name)
         return None
@@ -60,48 +60,54 @@ def get_song_name(song_name):
         return None
 
 def get_valence(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             valence = audio_features[0]['valence']
             return valence
 
 def get_tempo(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             tempo = audio_features[0]['tempo']
             return tempo
         
 def get_instrumentalness(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             instrumentalness = audio_features[0]['instrumentalness']
             return instrumentalness
         
 def get_energy(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             energy = audio_features[0]['energy']
             return energy
 
 def get_danceability(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             danceability = audio_features[0]['danceability']
             return danceability
         
 def get_spotify_image_url(song_name):
-    if(global_songID != 0):
-        track_info = sp.track(global_songID)
+    id = search_for_song(song_name)
+    if(id != 0):
+        track_info = sp.track(id)
         images = track_info['album']['images']
         if(images != 0):
             image_url = images[0]['url']
@@ -110,8 +116,9 @@ def get_spotify_image_url(song_name):
     return None
 
 def get_mode(song_name):
-    if(global_songID != 0):
-        audio_features = sp.audio_features([global_songID])
+    id = search_for_song(song_name)
+    if(id != 0):
+        audio_features = sp.audio_features([id])
         
         if(audio_features and audio_features[0]):
             mode = audio_features[0]['mode']
