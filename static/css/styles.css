@@ -52,7 +52,9 @@ body{
 h1 {
     background-color: black;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
     font-size: 36px;
     margin-top: 220px;
     color: white;
