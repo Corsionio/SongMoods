@@ -4,7 +4,7 @@
 
 import values
 import songColor
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 app = Flask(__name__)
 
@@ -26,8 +26,9 @@ def song():
     
     if request.method=="POST":
         song = request.form.get("song")
+        print(song)
     
-    if(song != None):
+    if(song != None and song != ""):
         # Gets all song values from the back-end values.py 
         # files and assigns them
         song_name = values.get_song_name(song)
@@ -44,6 +45,10 @@ def song():
         
         # Gets image_url
         image_url = values.get_spotify_image_url(song)
+    else:
+        # Redirect to home
+        return redirect("/")
+        
 
 
     return render_template('song.html', song=song_name,  image_url=image_url, red = red, green = green, blue = blue)

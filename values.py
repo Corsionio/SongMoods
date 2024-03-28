@@ -16,8 +16,7 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 
 client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-#sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, requests_timeout = 10, retries = 10)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, requests_timeout = 10, retries = 10)
 
 
 def get_token():
@@ -41,22 +40,29 @@ def get_auth_header(token):
     return{"Authorization" : "Bearer " + token}
   
 def search_for_song(song_name):
-    results = sp.search(q=song_name, type='track', limit=1)
-    
-    if(results['tracks']['items']):
-        track = results['tracks']['items'][0]
-        id = track['id']
-        return id
+    if(song_name != None and song_name != ""):
+        results = sp.search(q=song_name, type='track', limit=1)
+        
+        if(results['tracks']['items']):
+            track = results['tracks']['items'][0]
+            id = track['id']
+            return id
+        else:
+            print("No results found for the track:", song_name)
+            return None
     else:
-        print("No results found for the track:", song_name)
         return None
+    
 
 def get_song_name(song_name):
-    results = sp.search(q=song_name, type='track', limit=1)
-    
-    if(results['tracks']['items']):
-        track = results['tracks']['items'][0]
-        return track['name']
+    if(song_name != None and song_name != ""):
+        results = sp.search(q=song_name, type='track', limit=1)
+        
+        if(results['tracks']['items']):
+            track = results['tracks']['items'][0]
+            return track['name']
+        else:
+            return None
     else:
         return None
 
