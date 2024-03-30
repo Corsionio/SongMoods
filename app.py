@@ -30,7 +30,7 @@ def song():
     if(song != None and song != ""):
         # Gets all song values from the back-end values.py 
         # files and assigns them
-        track_info = vaues.search_for_song(song)
+        track_info = values.search_for_song(song)
         token = values.get_token()
         song_name = values.get_song_name(song)
         song_valence = values.get_valence(song)
