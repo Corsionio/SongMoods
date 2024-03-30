@@ -1,10 +1,10 @@
 #   Author: Corso Montuori
-#   Date: 3/4/2024
+#   Date: 3/29/2024
 #   Version: 1.1
 
 import values
 import songColor
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 app = Flask(__name__)
 
@@ -28,14 +28,11 @@ def song():
     if request.method=="POST":
         song = request.form.get("song")
     
-    if(song != None):
+    if(song != None and song != ""):
         # Gets all song values from the back-end values.py 
         # files and assigns them
-        track_info = values.search_for_song(song)
-        token = values.get_token()
         song_name = values.get_song_name(song)
         song_valence = values.get_valence(song)
-        song_time_signature = values.get_time_signature(song)
         song_tempo = values.get_tempo(song)
         song_instrumentalness = values.get_instrumentalness(song)
         song_energy = values.get_energy(song)
@@ -46,23 +43,11 @@ def song():
         red, green, blue = songColor.songAlgo(song_valence, song_tempo, song_instrumentalness, 
                                               song_energy, song_danceability, song_mode)
         
-        print("##########################################################")
-        print("Track Info --> ", track_info)
-        print("Song Token --> ", token)
-        print("Song Name --> ", song_name)
-        print("Song Valence --> ", song_valence)
-        print("Time Signature --> ", song_time_signature)
-        print("Song Tempo --> ", song_tempo)
-        print("Song Instrumentalness --> ", song_instrumentalness)
-        print("Song Energy --> ", song_energy)
-        print("Song Danceability --> ", song_danceability)
-        print("-> Red Before sub <-", red)
-        print("-> Green Before sub <-", green)
-        print("-> Blue Before sub <-", blue)
-        print("##########################################################")
-        
         # Gets image_url
         image_url = values.get_spotify_image_url(song)
+    else:
+        # Redirect to home
+        return redirect("/")
 
 
     return render_template('song.html', song=song_name,  image_url=image_url, red = red, green = green, blue = blue)
