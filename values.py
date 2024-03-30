@@ -5,6 +5,7 @@
 from dotenv import load_dotenv
 import os
 import base64
+from requests import post
 import json
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -15,7 +16,7 @@ client_id = os.getenv("CLIENT_ID")
 client_secret = os.getenv("CLIENT_SECRET")
 
 client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager, requests_timeout = 10, retries = 10)
 
 
 def get_token():
