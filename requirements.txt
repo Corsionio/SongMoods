@@ -57,7 +57,6 @@ wcwidth==0.2.13
 webencodings==0.5.1
 yarg==0.1.9
 yarl==1.9.4
-dotenv==0.0.5
 Flask==3.0.2
 requests==2.31.0
 spotipy==2.23.0
