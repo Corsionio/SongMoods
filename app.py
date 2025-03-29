@@ -28,6 +28,7 @@ def song():
     if request.method=="POST":
         song = request.form.get("song")
     
+    """
     if(song != None and song != ""):
         # Gets all song values from the back-end values.py 
         # files and assigns them
@@ -49,8 +50,12 @@ def song():
         # Redirect to home
         return redirect("/")
 
-
-    return render_template('song.html', song=song_name,  image_url=image_url, red = red, green = green, blue = blue)
+    """
+    # ---->
+    # Antiquated, used to work when spotify API allowed audio_features access for spotify web API developers.
+    #   return render_template('song.html', song=song_name,  image_url=image_url, red = red, green = green, blue = blue)
+    # <----
+    return render_template('broken.html')
  
 if __name__ == '__main__':
    app.run(debug=True)
